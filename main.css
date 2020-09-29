@@ -1,0 +1,37 @@
+
+body{
+    background-color: red;
+}
+.container{
+    width: 600px;
+    padding: 40px 0px;
+    margin: 0px auto;
+    background-color: white;
+    padding: 20px;
+}
+#profileImage{
+    height: 200px;
+    width: auto;
+    margin-right: 30px;
+}
+#inputs{
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    align-items: center;
+}
+#row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    align-items: center;  
+    margin-bottom: 20px;;
+}
+
+#inputs label, 
+#inputs #apiKey, 
+#inputs #userMovies, 
+#inputs #GoButton{
+    margin-bottom: 20px;
+    width: 60%;    
+}
