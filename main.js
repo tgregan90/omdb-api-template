@@ -10,16 +10,18 @@ async function getAndPrint(url) {
       return dataObj
   }
 async function getVals(e){
-        printHeadings();
       e.preventDefault();
       const apiKey = getApiKeyFromInput();
-      let movies = document.querySelector("#userMovies").value.split("\n");
+      if(apiKey.toString() != "Error"){
+          printHeadings();
+          let movies = document.querySelector("#userMovies").value.split("\n");
+          asyncForEach(movies,async (movie) => {
+              let movieObj = await getAndPrint("https://www.omdbapi.com/?apikey="+ apiKey+ "&t=" + movie.toString().toLowerCase().replace(" ","+"));
+            console.log(movieObj.Title)
+              await printObj(movieObj);
+          });
+      }
 
-    asyncForEach(movies,async (movie) => {
-        let movieObj = await getAndPrint("https://www.omdbapi.com/?apikey="+ apiKey+ "&t=" + movie.toString().toLowerCase().replace(" ","+"));
-       console.log(movieObj.Title)
-        await printObj(movieObj);
-    });
   }
 function printObj(obj){
     let div = document.createElement("div");
@@ -36,13 +38,16 @@ async function asyncForEach(array, callback) {
     }
   }
 function getApiKeyFromInput(){
-    const inputVal = document.getElementById("apiKey").value;
+    let inputVal = document.getElementById("apiKey").value;
       if(inputVal==""){
           alert("Please include an API Key");
+          inputVal = "Error";
           return
       }
       if(inputVal.length != 8){
           alert("Your APIKey Should be 8 chars long.");
+          inputVal = "Error";
+          return
       }
       return inputVal
   }
