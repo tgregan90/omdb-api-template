@@ -3,7 +3,7 @@ body{
     
 }
 .container{
-    width: 600px;
+    width: 80vw;
     padding: 40px 0px;
     margin: 0px auto;
     padding: 20px;
@@ -33,4 +33,11 @@ body{
 #inputs #GoButton{
     margin-bottom: 20px;
     width: 60%;    
+}
+#downloadButton {
+    display: none;
+}
+
+body.results #downloadButton {
+    display: block;
 }
