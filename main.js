@@ -24,7 +24,7 @@ async function getVals(e){
 function printObj(obj){
     let div = document.createElement("div");
     div.id = "row";
-    let message = `<img src="${obj.Poster}" id="profileImage"/><p>${obj.Title},${obj.Year},${obj.Released},${obj.Director},${obj.Actors},</p>`;  
+    let message = `<p>${obj.Title},${obj.Year},${obj.Released},${obj.Director},${obj.Actors},</p>`;  
     div.innerHTML = message;
     console.log(message);
     document.querySelector("#results").append(div)  ;
